@@ -32,7 +32,7 @@
                             <a href="{route}Dashboard{/route}">Dashboard</a>
                         </li>
                         <li>
-                            <a href="https://github.com/IsekaiDev/skadel.net" target="_blank">GitHub</a>
+                            <a href="https://github.com/IsekaiDev/Packager" target="_blank">GitHub</a>
                         </li>
                     </ul>
                 </div>

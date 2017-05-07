@@ -11,7 +11,7 @@
         <div class="panel-heading">Can i use this service?</div>
         <div class="panel-body">
             Unfortunately this site here is only for my purpose.<br />
-            But feel free to host this site yourself. The source can be found on <a href="" target="_blank">GitHub</a>.
+            But feel free to host this site yourself. The source can be found on <a href="https://github.com/IsekaiDev/Packager" target="_blank">GitHub</a>.
         </div>
     </div>
 {/block}
