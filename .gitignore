@@ -1,0 +1,7 @@
+
+### JetBrains ###
+.idea/
+
+### Others ###
+/system/private-key.pem
+/system/config.skadel.php

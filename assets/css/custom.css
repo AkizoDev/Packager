@@ -1,0 +1,579 @@
+* {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+
+body {
+    color: #424242;
+}
+
+.cont-flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+}
+
+.main {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.content {
+    min-height: 500px;
+    width: 100%;
+    max-width: calc(100% - 300px);
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+footer {
+    margin-bottom: 20px;
+}
+
+.sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 500px;
+    border: 1px solid #ccc;
+    border-left: 0;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.container {
+    width: 85%;
+}
+
+.cont-header {
+    margin-bottom: 25px;
+}
+
+.cont-header .userPanel {
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 40px;
+    height: 76px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.cont-header .userPanel.loggedin {
+    height: 40px;
+}
+
+.userPanel .sbtn {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.footc {
+    font-size: 10px;
+    padding: 0 5px 0 5px;
+}
+
+.fix-nav {
+    padding-left: 0;
+}
+
+.sidebar-panel .sidebar-heading {
+    padding: 5px 15px;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #306eff;
+    border-color: #306eff;
+    background: -moz-linear-gradient(top, #5185ff 0%, #1c60ff 100%);
+    background: -webkit-linear-gradient(top, #5185ff 0%,#1c60ff 100%);
+    background: linear-gradient(to bottom, #5185ff 0%,#1c60ff 100%);
+}
+
+.sidebar-panel .sidebar-body {
+    padding: 5px;
+}
+
+.internship-stats td {
+    padding: 4px!important;
+}
+
+.sidebar-panel {
+    margin-bottom: 5px;
+}
+
+.label {
+    border-radius: .5em!important;
+}
+
+.alert {
+    padding: 5px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .menu {
+    color: #ccc;
+    padding: 10px;
+    border-top: 1px solid #353535;
+    background-color: #424242;
+}
+
+.footer .menu .headline {
+    font-size: 16px;
+}
+
+.footer .menu .links {
+    margin-left: 10px;
+}
+
+.footer .copyright {
+    color: #ccc;
+    padding: 5px;
+    font-size: 11px;
+    border-top: 1px solid #4f4f4f;
+    background-color: #353535;
+}
+
+.footer a:hover {
+    color: #14b3e4;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    padding: 15px;
+}
+
+.navbar-custom .navbar-brand:hover > span {
+    color: #ccc!important;
+}
+
+.nav>li>a {
+    padding: 15px 10px;
+    font-size: 14px;
+}
+
+.subNav {
+    color: #777;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    height: 25px;
+    line-height: 25px;
+}
+
+.btn-normal {
+    padding: 5px 10px;
+    background-color:#424242;
+    border: 1px solid #353535;
+    color: #fff;
+}
+
+.btn-normal:hover {
+    background-color: #353535;
+}
+
+.btn-inverse {
+    padding: 5px 10px;
+    background-color:rgba(33, 150, 243, 1);
+    border: 1px solid #029acf;
+    color: #fff;
+}
+
+.btn-inverse:hover {
+    background-color: rgba(26, 119, 201, 1);
+}
+
+/*/ ==== Custom Navbar ==== /*/
+.navbar-custom {
+    border-color: #353535;
+    border-bottom: 1px solid #353535;
+    background-color: #424242;
+}
+.navbar-custom .navbar-brand {
+    color: #ccc;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+    color: #14b3e4;
+    background-color: transparent;
+}
+.navbar-custom .navbar-text {
+    color: #ccc;
+}
+.navbar-custom .navbar-nav > li > a {
+    color: #ccc;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    color: #14b3e4;
+    background-color: transparent;
+}
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+    color: #14b3e4;
+    background-color: transparent;
+}
+.navbar-custom .navbar-nav > .disabled > a,
+.navbar-custom .navbar-nav > .disabled > a:hover,
+.navbar-custom .navbar-nav > .disabled > a:focus {
+    color: #444444;
+    background-color: transparent;
+}
+.navbar-custom .navbar-toggle {
+    border-color: #ccc;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+    background-color: #353535;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #cccccc;
+}
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-form {
+    border-color: #353535;
+}
+.navbar-custom .navbar-nav > .open > a,
+.navbar-custom .navbar-nav > .open > a:hover,
+.navbar-custom .navbar-nav > .open > a:focus {
+    background-color: transparent;
+    color: #14b3e4;
+}
+@media (max-width: 767px) {
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+        color: #ccc;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #14b3e4;
+        background-color: transparent;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #14b3e4;
+        background-color: transparent;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #444444;
+        background-color: transparent;
+    }
+    .navbar-custom .navbar-collapse ul > li > a {
+        padding: 5px 15px;
+        margin-left: 15px;
+    }
+}
+.navbar-custom .navbar-link {
+    color: #ccc;
+}
+.navbar-custom .navbar-link:hover {
+    color: #14b3e4;
+}
+.navbar-custom .btn-link {
+    color: #ccc;
+}
+.navbar-custom .btn-link:hover,
+.navbar-custom .btn-link:focus {
+    color: #14b3e4;
+}
+.navbar-custom .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-custom .btn-link:hover,
+.navbar-custom .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-custom .btn-link:focus {
+    color: #444444;
+}
+
+.navbar-custom .dropdown-menu {
+    background-color: #424242;
+    border-color: #353535;
+}
+
+.navbar-custom .dropdown-menu > li > a {
+    color: #ccc;
+}
+
+.navbar-custom .dropdown-menu > li > a:hover {
+    background: none;
+    color: #14b3e4;
+}
+
+.navbar-custom .dropdown-menu > li.active > a {
+    color: #14b3e4;
+    background: none;
+}
+/*/ ==== End Custom Navbar ==== /*/
+
+/*/ ==== Yeti Progressbars ==== /*/
+.progress {
+    height: 22px;
+    padding: 2px;
+    background-color: #f6f6f6;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+@-webkit-keyframes progress-bar-stripes {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+@-o-keyframes progress-bar-stripes {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+.progress {
+    overflow: hidden;
+    height: 21px;
+    margin-bottom: 21px;
+    background-color: #f5f5f5;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.progress-bar {
+    float: left;
+    width: 0%;
+    height: 100%;
+    font-size: 12px;
+    line-height: 21px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #008cba;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    -webkit-transition: width 0.6s ease;
+    -o-transition: width 0.6s ease;
+    transition: width 0.6s ease;
+}
+.progress-striped .progress-bar,
+.progress-bar-striped {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    -webkit-background-size: 40px 40px;
+    background-size: 40px 40px;
+}
+.progress.active .progress-bar,
+.progress-bar.active {
+    -webkit-animation: progress-bar-stripes 2s linear infinite;
+    -o-animation: progress-bar-stripes 2s linear infinite;
+    animation: progress-bar-stripes 2s linear infinite;
+}
+.progress-bar-success {
+    background-color: #43ac6a;
+}
+.progress-striped .progress-bar-success {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+.progress-bar-info {
+    background-color: #5bc0de;
+}
+.progress-striped .progress-bar-info {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+.progress-bar-warning {
+    background-color: #e99002;
+}
+.progress-striped .progress-bar-warning {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+.progress-bar-danger {
+    background-color: #f04124;
+}
+.progress-striped .progress-bar-danger {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+/*/ ==== End Yeti Progressbars ==== /*/
+
+
+
+.flexibleButtonGroup {
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.flexibleButtonGroup > li {
+    display: flex;
+    flex: 0 0 auto;
+}
+
+.flexibleButtonGroup > li:not(:last-child) {
+    margin-right: 5px;
+}
+
+.flexibleButtonGroup > li:not(:last-child).spaceAfter {
+    margin-right: 20px;
+}
+
+.flexibleButtonGroup > li > input[type="radio"] {
+    display: none;
+    opacity: 0;
+}
+
+.flexibleButtonGroup > li > input[type="radio"]:checked + label {
+    cursor: default;
+}
+
+.flexibleButtonGroup > li > input[type="radio"]:checked + label > .icon {
+    cursor: default !important;
+}
+
+.flexibleButtonGroup > li > input[type="radio"]:focus + label {
+    border-color: rgba(0, 0, 0, .3);
+}
+
+.flexibleButtonGroup > li > input[type="checkbox"] {
+    display: none;
+    opacity: 0;
+}
+
+.flexibleButtonGroup > li > input[type="checkbox"]:checked + label {
+    cursor: default;
+}
+
+.flexibleButtonGroup > li > input[type="checkbox"]:checked + label > .icon {
+    cursor: default !important;
+}
+
+.flexibleButtonGroup > li > input[type="checkbox"]:focus + label {
+    border-color: rgba(0, 0, 0, .3);
+}
+
+.flexibleButtonGroup > li > a,
+.flexibleButtonGroup > li > label {
+    background-color: #ddd;
+    border: 1px solid transparent;
+    color: #212121;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.flexibleButtonGroup > li > a > .icon,
+.flexibleButtonGroup > li > label > .icon {
+    color: inherit;
+}
+
+.flexibleButtonGroup > li > a > .icon,
+.flexibleButtonGroup > li > label > .icon {
+    color: inherit !important;
+    cursor: pointer !important;
+}
+
+.flexibleButtonGroup > li > a.active,
+.flexibleButtonGroup > li > input[type="radio"]:checked + label,
+.flexibleButtonGroup > li > input[type="radio"] + label:hover {
+    color: #fff;
+}
+
+.flexibleButtonGroup > li > a.active.green,
+.flexibleButtonGroup > li > input[type="radio"]:checked + label.green,
+.flexibleButtonGroup > li > input[type="radio"] + label:hover.green {
+    background-color: #469408;
+}
+
+.flexibleButtonGroup > li > a.active.red,
+.flexibleButtonGroup > li > input[type="radio"]:checked + label.red,
+.flexibleButtonGroup > li > input[type="radio"] + label:hover.red {
+    background-color: #d9230f;
+}
+
+.flexibleButtonGroup > li > a.active.yellow,
+.flexibleButtonGroup > li > input[type="radio"]:checked + label.yellow,
+.flexibleButtonGroup > li > input[type="radio"] + label:hover.yellow {
+    background-color: #fb8c00;
+    color: #000;
+}
+
+.flexibleButtonGroup > li > input[type="radio"]:disabled + label {
+    background-color: #f2f2f2 !important;
+    color: #7d8264 !important;
+    cursor: default;
+}
+
+.flexibleButtonGroup > li > input[type="radio"]:disabled + label > .icon {
+    color: #7d8264 !important;
+    cursor: default!important;
+}
+
+.flexibleButtonGroup > li > input[type="checkbox"] + label.onOff {
+    background-color: #d9230f;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.flexibleButtonGroup > li > input[type="checkbox"]:checked + label.onOff {
+    background-color: #469408;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.flexibleButtonGroup > li > input[type="checkbox"] + label.onOff > .fa-onOff{
+    width: 13px;
+}
+
+.flexibleButtonGroup > li > input[type="checkbox"] + label.onOff > .fa-onOff:before {
+    content: "\f00d";
+}
+
+.flexibleButtonGroup > li > input[type="checkbox"]:checked + label.onOff > .fa-onOff:before {
+    content: "\f00c";
+}
+
+
+.flexibleButtonGroup > li > label.onOff {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.flexibleButtonGroup.autoJoin > li,
+.flexibleButtonGroup.autoJoin > li > label {
+    margin: 0;
+    width: 100%;
+}
