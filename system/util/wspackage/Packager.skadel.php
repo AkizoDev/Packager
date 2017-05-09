@@ -19,8 +19,14 @@ class Packager extends PackageXmlParser {
         /* pack required .tar files */
         foreach ($files as $file) {
             if (static::endsWith($file, '.tar')) {
-                $pack = new \PharData($this->packagePath . '/' . $file);
-                $pack->buildFromDirectory($this->packagePath . '/' . str_replace('.tar', '', $file));
+                if (!file_exists($this->packagePath . '/' . $file)) {
+                    if (is_dir(str_replace('.tar', '', $file))) {
+                        $pack = new \PharData($this->packagePath . '/' . $file);
+                        $pack->buildFromDirectory($this->packagePath . '/' . str_replace('.tar', '', $file));
+                    } else {
+                        throw new \Exception('can\'t find "' . $file . '"');
+                    }
+                }
             }
         }
 
@@ -46,7 +52,11 @@ class Packager extends PackageXmlParser {
                     $phar->addFile($tmpFile, str_replace('*', $tmpFileData['filename'], $file));
                 }
             } else {
-                $phar->addFile($this->packagePath . '/' . $file, $file);
+                if (file_exists($this->packagePath . '/' . $file)) {
+                    $phar->addFile($this->packagePath . '/' . $file, $file);
+                } else {
+                    throw new \Exception('can\'t find "' . $file . '"');
+                }
             }
         }
         //$phar->compress(\Phar::GZ);
