@@ -3,6 +3,7 @@
 namespace skadel\system\controller;
 
 
+use skadel\system\exception\BuildException;
 use skadel\system\util\Git;
 use skadel\system\util\github\Installation;
 use skadel\system\util\HTTPRequest;
@@ -20,7 +21,7 @@ class GitHubIntegration {
             if ($resp->getHeader('X-GitHub-Event') === 'push') {
                 $body = $resp->getParsed();
                 $installID = $body['installation']['id'];
-                if (isset($body['head_commit']) && isset($body['head_commit']['id']) && $body['head_commit'] != null) {
+                if (isset($body['head_commit']) && isset($body['head_commit']['id']) && $body['head_commit'] != null && $body['ref'] === 'refs/heads/master') {
                     if (preg_match("/\[wsp(=(?P<message>[^\]]+))?\]/", $body['head_commit']['message'], $match) !== false) {
                         $installation = new Installation($installID);
                         $token = $installation->getAccessToken();
@@ -31,7 +32,11 @@ class GitHubIntegration {
                         try {
                             $packager = new Packager($packagePath);
                             $package = $packager->build();
+                        } catch (BuildException $e) {
+                            var_dump($e->getMessage());
+                            $this->buildError = true;
                         } catch (\Exception $e) {
+                            var_dump($e->getMessage());
                             $this->buildError = true;
                         }
 

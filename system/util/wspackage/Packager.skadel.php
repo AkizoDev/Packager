@@ -4,6 +4,8 @@
 namespace skadel\system\util\wspackage;
 
 
+use skadel\system\exception\BuildException;
+
 class Packager extends PackageXmlParser {
     public function __construct($packagePath) {
         parent::__construct($packagePath);
@@ -20,11 +22,11 @@ class Packager extends PackageXmlParser {
         foreach ($files as $file) {
             if (static::endsWith($file, '.tar')) {
                 if (!file_exists($this->packagePath . '/' . $file)) {
-                    if (is_dir(str_replace('.tar', '', $file))) {
+                    if (is_dir($this->packagePath . '/' . str_replace('.tar', '', $file))) {
                         $pack = new \PharData($this->packagePath . '/' . $file);
                         $pack->buildFromDirectory($this->packagePath . '/' . str_replace('.tar', '', $file));
                     } else {
-                        throw new \Exception('can\'t find "' . $file . '"');
+                        throw new BuildException('can\'t find "' . $file . '"');
                     }
                 }
             }
@@ -55,7 +57,7 @@ class Packager extends PackageXmlParser {
                 if (file_exists($this->packagePath . '/' . $file)) {
                     $phar->addFile($this->packagePath . '/' . $file, $file);
                 } else {
-                    throw new \Exception('can\'t find "' . $file . '"');
+                    throw new BuildException('can\'t find "' . $file . '"');
                 }
             }
         }
