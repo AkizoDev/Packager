@@ -33,10 +33,8 @@ class GitHubIntegration {
                             $packager = new Packager($packagePath);
                             $package = $packager->build();
                         } catch (BuildException $e) {
-                            var_dump($e->getMessage());
                             $this->buildError = true;
                         } catch (\Exception $e) {
-                            var_dump($e->getMessage());
                             $this->buildError = true;
                         }
 
