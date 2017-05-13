@@ -6,6 +6,7 @@ namespace skadel\system\controller;
 use skadel\system\exception\BuildException;
 use skadel\system\util\Git;
 use skadel\system\util\github\Installation;
+use skadel\system\util\github\Status;
 use skadel\system\util\HTTPRequest;
 use skadel\system\util\Response;
 use skadel\system\util\wspackage\Packager;
@@ -26,6 +27,9 @@ class GitHubIntegration {
                         $installation = new Installation($installID);
                         $token = $installation->getAccessToken();
 
+                        $status = new Status($token, $body['repository']['full_name'], $body['head_commit']['id']);
+                        $status->create(Status::STATE_PENDING, 'Build pending');
+
                         $packagePath = PACKAGE_DIR . $body['repository']['name'];
                         $repository = Git::cloneRepository('https://x-access-token:' . $token . '@github.com/' . $body['repository']['full_name'] . '.git', $packagePath);
 
@@ -34,8 +38,11 @@ class GitHubIntegration {
                             $package = $packager->build();
                         } catch (BuildException $e) {
                             $this->buildError = true;
+                            $status->create(Status::STATE_FAILED, $e->getMessage());
                         } catch (\Exception $e) {
+                            var_dump($e->getMessage());
                             $this->buildError = true;
+                            $status->create(Status::STATE_ERROR, 'system error while building');
                         }
 
                         if (!$this->buildError) {
@@ -61,6 +68,8 @@ class GitHubIntegration {
                             $uploadFile->addHeader('Content-Type', 'application/gzip');
                             $uploadFile->setAttachedFile($package['file']);
                             $uploadFile->execute();
+
+                            $status->create(Status::STATE_SUCCESS, 'Version ' . $package['version'] . ' released');
                         }
 
                         //cleanup

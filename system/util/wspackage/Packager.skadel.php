@@ -26,7 +26,7 @@ class Packager extends PackageXmlParser {
                         $pack = new \PharData($this->packagePath . '/' . $file);
                         $pack->buildFromDirectory($this->packagePath . '/' . str_replace('.tar', '', $file));
                     } else {
-                        throw new BuildException('can\'t find "' . $file . '"');
+                        throw new BuildException('missing file "' . $file . '"');
                     }
                 }
             }
@@ -57,7 +57,7 @@ class Packager extends PackageXmlParser {
                 if (file_exists($this->packagePath . '/' . $file)) {
                     $phar->addFile($this->packagePath . '/' . $file, $file);
                 } else {
-                    throw new BuildException('can\'t find "' . $file . '"');
+                    throw new BuildException('missing "' . $file . '"');
                 }
             }
         }
