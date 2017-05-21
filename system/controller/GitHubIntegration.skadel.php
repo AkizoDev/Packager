@@ -13,8 +13,6 @@ use skadel\system\util\wspackage\Packager;
 
 class GitHubIntegration {
 
-    private $buildError = false;
-
     public function notify() {
         Response::setStatus(202);
         $resp = new Response(file_get_contents('php://input'));
@@ -36,16 +34,7 @@ class GitHubIntegration {
                         try {
                             $packager = new Packager($packagePath);
                             $package = $packager->build();
-                        } catch (BuildException $e) {
-                            $this->buildError = true;
-                            $status->create(Status::STATE_FAILED, $e->getMessage());
-                        } catch (\Exception $e) {
-                            var_dump($e->getMessage());
-                            $this->buildError = true;
-                            $status->create(Status::STATE_ERROR, 'system error while building');
-                        }
 
-                        if (!$this->buildError) {
                             $createRelease = new HTTPRequest('https://api.github.com/repos/' . $body['repository']['full_name'] . '/releases', 'POST');
                             $createRelease->addHeader('Authorization', 'Token ' . $token);
                             $createRelease->addHeader('Accept', 'application/vnd.github.v3+json');
@@ -55,7 +44,7 @@ class GitHubIntegration {
                                 'name' => 'Version ' . $package['version'],
                                 'body' => (isset($match['message']) && strlen($match['message']) > 0) ? $match['message'] : 'Release of version ' . $package['version'],
                                 'draft' => false,
-                                'prerelease' => false
+                                'prerelease' => (preg_match("/^(.*?(\b(beta|alpha)\b)[^$]*)$/i", $package['version']) !== false) ? true : false
                             ]);
                             $createRelease->execute();
 
@@ -70,6 +59,10 @@ class GitHubIntegration {
                             $uploadFile->execute();
 
                             $status->create(Status::STATE_SUCCESS, 'Version ' . $package['version'] . ' released');
+                        } catch (BuildException $e) {
+                            $status->create(Status::STATE_FAILED, $e->getMessage());
+                        } catch (\Exception $e) {
+                            $status->create(Status::STATE_ERROR, 'system error while building');
                         }
 
                         //cleanup

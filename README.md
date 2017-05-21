@@ -3,9 +3,8 @@ This is an backend system for a GitHub integration to automatically pack WoltLab
 
 ## How does it work ?
 Through the webhook system this system gets notified every time a commit is pushed.  
-Does the `head_commit` contains \[wsp\] or \[wsp=custom release message\] in it, this systems is going to clone the repository and automatically pack it into a valid WoltLab Suite™ package.
-After this the system creates a release in the repository and uploads the package as a asset to it.
-
+Does the `head_commit` message contains `[wsp]` or `[wsp=custom release message]` in it, this systems is going to clone the repository and automatically pack it into a valid WoltLab Suite™ package.
+After this the system creates a release in the repository and uploads the package as a asset to it. If the package version contains the words alpha or beta it gets marked as pre-release.
 # Installation
 Installation instructions coming soon...
 
