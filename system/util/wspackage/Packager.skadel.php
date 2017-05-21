@@ -48,9 +48,9 @@ class Packager extends PackageXmlParser {
         foreach ($files as $file) {
             /* find all files where an wildcard is used */
             if (strpos($file, '*.') !== false) {
-                $tmpFiles = array_diff(glob(PACKAGE_DIR . $file), ['.', '..']);
+                $tmpFiles = array_diff(glob($this->packagePath . '/' . $file), ['.', '..']);
                 foreach ($tmpFiles as $tmpFile) {
-                    $tmpFileData = pathinfo($file);
+                    $tmpFileData = pathinfo($tmpFile);
                     $phar->addFile($tmpFile, str_replace('*', $tmpFileData['filename'], $file));
                 }
             } else {
