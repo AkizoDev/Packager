@@ -75,9 +75,22 @@ class PackageXmlParser {
                     ];
                 }
 
-                $this->files = array_merge($this->parsePips($tmpFiles), ['package.xml']);
+                $tmpPackages = [];
+                foreach ($this->xml->requiredpackages->requiredpackage as $required) {
+                    $file = (string)$required->attributes()->file;
+                    if (!empty($file)) {
+                        $tmpPackages[] = $file;
+                    }
+                }
+                foreach ($this->xml->optionalpackage->optionalpackage as $optional) {
+                    $file = (string)$optional->attributes()->file;
+                    if (!empty($file)) {
+                        $tmpPackages[] = $file;
+                    }
+                }
+                $this->files = array_merge($this->parsePips($tmpFiles), $tmpPackages, ['package.xml']);
                 //TODO: parse style.xml -> pack files for styles
-                //TODO: parse requiredpackages & optionalpackages
+
             } catch (\Exception $e) {
                 echo 'package.xml is not a valid xml file';
             }

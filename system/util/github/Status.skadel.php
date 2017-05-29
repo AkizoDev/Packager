@@ -40,8 +40,6 @@ class Status {
                 'context' => 'deployment/' . str_replace(' ', '-', WEB_TITLE) . 'Packager'
             ]);
             $createStatus->execute();
-
-            var_dump($createStatus->handleJsonResponse());
         }
     }
 

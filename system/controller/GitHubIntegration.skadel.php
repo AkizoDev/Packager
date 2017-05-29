@@ -21,7 +21,7 @@ class GitHubIntegration {
                 $body = $resp->getParsed();
                 $installID = $body['installation']['id'];
                 if (isset($body['head_commit']) && isset($body['head_commit']['id']) && $body['head_commit'] != null && $body['ref'] === 'refs/heads/master') {
-                    if (preg_match("/\[wsp(=(?P<message>[^\]]+))?\]/", $body['head_commit']['message'], $match) !== false) {
+                    if (preg_match("/\[wsp(=(?P<message>[^\]]+))?\]/", $body['head_commit']['message'], $match) >= 1) {
                         $installation = new Installation($installID);
                         $token = $installation->getAccessToken();
 
@@ -44,7 +44,7 @@ class GitHubIntegration {
                                 'name' => 'Version ' . $package['version'],
                                 'body' => (isset($match['message']) && strlen($match['message']) > 0) ? $match['message'] : 'Release of version ' . $package['version'],
                                 'draft' => false,
-                                'prerelease' => (preg_match("/^(.*?(\b(beta|alpha)\b)[^$]*)$/i", $package['version']) !== false) ? true : false
+                                'prerelease' => (preg_match("/^(.*?(\b(beta|alpha)\b)[^$]*)$/i", $package['version']) >= 1) ? true : false
                             ]);
                             $createRelease->execute();
 
