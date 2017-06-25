@@ -1,6 +1,5 @@
 <?php
 
-
 namespace skadel\system\util;
 
 require_once SYS_DIR . 'lib/Git.php';
@@ -26,7 +25,7 @@ class Git extends \GitRepository {
         if (is_dir($this->getRepositoryPath() . '/.git') && ($this->getRepositoryPath() !== '.' && $this->getRepositoryPath() !== '..')) {
             exec(self::processCommand([
                 'rm',
-                '-r',
+                '-rf',
                 $this->getRepositoryPath()
             ]), $output, $returnCode);
 
