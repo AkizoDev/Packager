@@ -22,16 +22,27 @@ class Git extends \GitRepository {
     }
 
     public function removeLocalRepo() {
-        if (is_dir($this->getRepositoryPath() . '/.git') && ($this->getRepositoryPath() !== '.' && $this->getRepositoryPath() !== '..')) {
-            exec(self::processCommand([
+        if (is_dir($this->getRepositoryPath() . '/.git') && ($this->getRepositoryPath() !== '.' && $this->getRepositoryPath() !== '..') && is_dir($this->getRepositoryPath())) {
+            /*exec(self::processCommand([
                 'rm',
                 '-rf',
                 $this->getRepositoryPath()
-            ]), $output, $returnCode);
+            ]), $output, $returnCode);*/
 
-            if ($returnCode !== 0) {
-                throw new \Exception("Git clone failed (directory $directory).");
+            //exec('rm -rf '.$this->getRepositoryPath().'/', $output, $returnCode);
+
+
+            if (!$this->deleteDirectory($this->getRepositoryPath())) {
+                throw new \Exception('Removing git repository failed (' . $this->getRepositoryPath() . ') - ' . $returnCode . ' - ' . 'rm -rf ' . $this->getRepositoryPath());
             }
         }
+    }
+
+    private function deleteDirectory($directory) {
+        $files = array_diff(scandir($directory), array('.', '..'));
+        foreach ($files as $file) {
+            (is_dir($directory . '/' . $file)) ? $this->deleteDirectory($directory . '/' . $file) : unlink($directory . '/' . $file);
+        }
+        return rmdir($directory);
     }
 }

@@ -69,6 +69,7 @@ class PackageXmlParser {
                 $tmpFiles = [];
                 /** @var \SimpleXMLElement $instruction */
                 foreach ($this->xml->instructions->instruction as $instruction) {
+                    if($instruction->attributes()->type == 'script') continue;
                     $tmpFiles[] = [
                         'pip' => (string)$instruction->attributes()->type,
                         'path' => (string)$instruction
