@@ -41,8 +41,8 @@ class GitHubIntegration {
                             $createRelease->setPostParameter([
                                 'tag_name' => str_replace(' ', '-', $package['version']) . '-' . $branch['branch'],
                                 'target_commitish' => $body['head_commit']['id'],
-                                'name' => 'Version ' . $package['version'] . ' (' . $branch['branch'] . ')',
-                                'body' => (isset($match['message']) && strlen($match['message']) > 0) ? $match['message'] : 'Release of version ' . $package['version'],
+                                'name' => 'Version ' . $package['version'],
+                                'body' => '**Branch:** ' . $branch['branch'] . PHP_EOL . ((isset($match['message']) && strlen($match['message']) > 0) ? $match['message'] : 'Release of version ' . $package['version']),
                                 'draft' => false,
                                 'prerelease' => (preg_match("/^(.*?(\b(beta|alpha)\b)[^$]*)$/i", $package['version']) >= 1) ? true : false
                             ]);
